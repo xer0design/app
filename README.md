@@ -1,83 +1,44 @@
-<a href="https://festify.rocks/">
-    <img title="Festify Logo" height="150" src="https://festify.rocks/img/festify-logo.svg">
-</a>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Festify
+## Available Scripts
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Festify/app.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.org/Festify/app.svg?branch=develop)](https://travis-ci.org/Festify/app)
+In the project directory, you can run:
 
-Festify is a free Spotify-powered app that lets your guests choose which music should be played using their smartphones. [festify.rocks](https://festify.rocks/)
+### `npm start`
 
-## Building
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Dependencies
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-1. [nodejs](https://nodejs.org), [TypeScript](https://typescriptlang.org) and [yarn](https://yarnpkg.com): Festify is written in TypeScript for better scalability and fewer bugs. We use yarn for package management.
-1. [Firebase](https://firebase.google.com): Festify is built upon Firebase Realtime Database and Firebase Cloud Functions. Set up a _dedicated and paid_ Firebase project.
-1. [Spotify](https://beta.developer.spotify.com/): Festify plays music from Spotify. Set up a Spotify Developer Application (you need a Spotify Premium account) and configure the OAuth redirect URL. Usually at least `http://localhost:3000` is needed for a dev-environment. 3000 is the port the dev-server started with `yarn serve` runs on, but this can be any port you like, if you configure the dev server accordingly.
-1. [Fanart.tv](https://fanart.tv) & [Sentry](https://sentry.io): Festify displays Fanart from fanart.tv in the TV Mode and uses Sentry for error reporting. You require an account for both services.
+### `npm test`
 
-### Environment Files
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Festify loads configuration variables though JS / TS / JSON files included in the build process. All following paths are relative to the repository root.
+### `npm run build`
 
-- `common.config.js`: This file includes common configuration values that don't deserve their own file. Currently this is the Sentry URL and the Fanart.tv API key. It looks like this:
-    ```js
-    export const FANART_TV_API_KEY = "FANART_API_KEY_HERE";
-    export const SENTRY_URL = "SENTRY_URL_HERE";
-    ```
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- `firebase.config.js`: This file contains a simplified form of the config snippet you get when you add Firebase to a web application.
-    ```js
-    export default {
-        apiKey: "FIREBASE_API_KEY",
-        authDomain: "FIREBASE_AUTH_DOMAIN",
-        databaseURL: "FIREBASE_DATABASE_URL",
-        projectId: "FIREBASE_PROJECT_ID",
-    };
-    ```
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-- `spotify.config.js`: This file contains the required configuration for authorization with Spotify and playback.
-    ```js
-    export const CLIENT_ID = "YOUR_SPOTIFY_APPLICATION_CLIENT_ID";
-    ```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- `functions/service-account.json`: This is the Firebase service account file obtained directly from the web console. You can obtain it by going to Project Settings > Service Accounts > Firebase Admin SDK > Generate new private key.
+### `npm run eject`
 
-- `functions/spotify.config.ts`: This file contains Spotify configuration for the cloud functions.
-    ```ts
-    export const CLIENT_ID = "YOUR_SPOTIFY_APPLICATION_CLIENT_ID";
-    export const ENCRYPTION_SECRET = "REFRESH_TOKEN_ENCRYPTION_KEY - PLEASE GENERATE";
-    export const CLIENT_SECRET = "YOUR_SPOTIFY_APPLICATION_CLIENT_SECRET";
-    ```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Since all config values (except for the `service-account.json`) are loaded through standard ES modules machinery, building the project will notify you if something is missing.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Building & Serving
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-The `package.json` contains all necessary commands for building Festify.
-- `build`<a name="build-festify"></a>: Compiles the TypeScript to JS and bundles all JS to a single file. You can then deploy the files in `/build` to a webserver of choice to run Festify.
-- `fix`: Attempts to automatically fix linter errors.
-- `lint`: Lints the TS sources with tslint.
-- `prepare-env`: Used in CI environments to load environment files from branch-name-suffixed environment variables.
-- `serve`: Starts the rollup dev-server serving a local instance of Festify on port 3000. Also supports live-reloading. Ensure you deploy the project to firebase before using the dev server because Festify depends on cloud functions to be present!
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Contributing
+## Learn More
 
-1. Fork it! :octocat:
-1. Create your feature branch: `git checkout -b my-improvement`
-1. Make your changes and test them!
-1. Commit & push your changes
-1. Submit a pull request :rocket:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## License
-
-LGPLv3
-
-## Sponsors
-
-These people helped us bring Festify to life. Thank you!
-
-<a href="https://duplexmedia.com/"><img title="Duplexmedia" src="https://www.duplexmedia.com/uploads/images/logo.svg" width="400"></a>
-
-<a href="https://browserstack.com/"><img title="BrowserStack" src="https://festify.rocks/img/sponsors/browserstack.svg" width="400"></a>
+To learn React, check out the [React documentation](https://reactjs.org/).
