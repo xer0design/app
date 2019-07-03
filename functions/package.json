@@ -8,7 +8,8 @@
     "quick-lru": "^1.1.0",
     "request": "^2.88.0",
     "requestretry": "^3.0.2",
-    "tslib": "^1.9.0"
+    "tslib": "^1.9.0",
+    "snyk": "^1.189.0"
   },
   "main": "./dist/index.js",
   "private": true,
@@ -20,6 +21,9 @@
   },
   "scripts": {
     "build": "tsc && cp service-account.json ./dist",
-    "deploy": "npm run build && firebase deploy --only functions"
-  }
+    "deploy": "npm run build && firebase deploy --only functions",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
