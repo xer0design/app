@@ -35,7 +35,8 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-saga": "^0.16.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@mraerino/rollup-plugin-minifyliterals": "^1.2.0",
@@ -66,12 +67,15 @@
     "fix": "tslint -p tsconfig.json --fix",
     "lint": "tslint -p tsconfig.json",
     "prepare-env": "node prepare-env.js",
-    "serve": "rollup -c --watch"
+    "serve": "rollup -c --watch",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "bundlesize": [
     {
       "path": "build/index.js",
       "maxSize": "250 kb"
     }
-  ]
+  ],
+  "snyk": true
 }
